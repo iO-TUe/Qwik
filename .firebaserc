@@ -1,0 +1,15 @@
+{
+  "projects": {
+    "live": "io-tue"
+  },
+  "targets": {
+    "io-tue": {
+      "hosting": {
+        "Qwik": [
+          "io-qwik"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
