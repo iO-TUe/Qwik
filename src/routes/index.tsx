@@ -1,35 +1,30 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik"
 import Counter from "~/counter"
+import Header from "~/header"
 
 export default component$(() => {
     useStylesScoped$(/*scss*/`
-        .container {
-            height: 100%;
+        .App {
+            text-align: center;
+            }
+
+        .App-main {
+            background-color: var(--main-background);
+            height: calc(100vh - 114px);
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap: 4em;
-            width: 100%;
-
-            @media (min-width: 640px) {
-                .container {
-                    max-width: 640px;
-                }
-            }
-
-            @media (min-width: 768px) {
-                .container {
-                    max-width: 768px;
-                }
-            }
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
         }
     `)
     { console.log('Script: App') }
     return <>
         {console.log('Render: App')}
-        <div class="container">
+        <Header />
+        <main class="App-main">
             <Counter initialValue={95} />
-        </div>
+        </main>
     </>
 })
