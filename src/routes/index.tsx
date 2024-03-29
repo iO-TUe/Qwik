@@ -4,10 +4,6 @@ import Header from "~/header"
 
 export default component$(() => {
     useStylesScoped$(/*scss*/`
-        .App {
-            text-align: center;
-            }
-
         .App-main {
             background-color: var(--main-background);
             height: calc(100vh - 114px);
@@ -20,9 +16,9 @@ export default component$(() => {
             padding: 0 2em
         }
     `)
-    { console.log('Script: App') }
+    // { console.log('Script: App') }
     return <>
-        {console.log('Render: App')}
+        {/* {console.log('Render: App')} */}
         <Header />
         <main class="App-main">
             <Counter initialValue={80} />
