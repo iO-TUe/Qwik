@@ -41,9 +41,9 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
     setTimeout(() => bool.value = recurse, 0)
   })
 
-  console.log('Script: Gauge')
+  // console.log('Script: Gauge')
   return <>
-    {console.log('Render: Gauge')}
+    {/* {console.log('Render: Gauge')} */}
     <div role='feed' class="wrapper" onClick$={() => bool.value = true}>
       <svg viewBox="0 0 120 120" class="gauge">
         <defs>
@@ -57,6 +57,6 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
       </svg>
       <span class="value">{value}</span>
     </div>
-    {(bool.value && value < 120) && <div class="recurse"><Gauge value={value + 1} recurse={true} /><Gauge value={value + 5} recurse={true} /></div>}
+    {(bool.value && value < 100) && <div class="recurse"><Gauge value={value + 1} recurse={true} /><Gauge value={value + 5} recurse={true} /></div>}
   </>
 })

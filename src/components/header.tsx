@@ -4,7 +4,6 @@ export default component$(() => {
   useStylesScoped$(/*scss*/`
     .App-navbar {
       padding: 30px 40px;
-      text-align: right;
       background-color: var(--main-background);
     }
 
@@ -14,9 +13,9 @@ export default component$(() => {
     }
   `)
 
-  console.log('Script: Header')
+  // console.log('Script: Header')
   return <>
-    {console.log('Render: Header')}
+    {/* {console.log('Render: Header')} */}
     <nav class="App-navbar">
       <div class="App-logo">
         <svg

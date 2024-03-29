@@ -21,10 +21,10 @@ export default component$((props: { initialValue: number }) => {
     if (count.value > 0) count.value--
   })
 
-   console.log(`Script: Counter`) 
+  //  console.log(`Script: Counter`) 
 
   return <>
-    {console.log(`Render: Counter`)}
+    {/* {console.log(`Render: Counter`)} */}
     <div class="wrapper">
       <Button disabled={count.value === 0} fn={subtract} sign='-' />
       <Gauge value={count.value} recurse={false} />

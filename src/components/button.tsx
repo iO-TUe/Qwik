@@ -24,9 +24,9 @@ export default component$<{ disabled: boolean, fn: PropFunction<() => void>, sig
         }
     `)
 
-    console.log(`Script: "${sign}" button`)
+    // console.log(`Script: "${sign}" button`)
     return <>
-        {console.log(`Render: "${sign}" button`)}
+        {/* {console.log(`Render: "${sign}" button`)} */}
         <button class="button" disabled={disabled} onClick$={() => fn()} aria-label={sign}>
             {sign}
         </button>

@@ -25,7 +25,7 @@ export default component$(() => {
         {console.log('Render: App')}
         <Header />
         <main class="App-main">
-            <Counter initialValue={95} />
+            <Counter initialValue={80} />
         </main>
     </>
 })
