@@ -38,7 +38,7 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
   `)
 
   useTask$(() => {
-    setTimeout(() => bool.value = recurse, 10)
+    setTimeout(() => bool.value = recurse, 0)
   })
 
   console.log('Script: Gauge')
