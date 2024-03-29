@@ -49,7 +49,7 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#18B6F6" />
-            <stop offset="1000%" stop-color="#AC7FF4" />
+            <stop offset="1000%" stop-color="#AC7EF4" />
           </linearGradient>
         </defs>
         <circle r="56" cx="60" cy="60" stroke-width="8" style="fill: #000; stroke: #0000" />
