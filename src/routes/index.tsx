@@ -1,5 +1,5 @@
 import { component$, useStylesScoped$ } from "@builder.io/qwik"
-import Counter from "~/counter"
+import Counter from "~/Counter"
 import Header from "~/header"
 
 export default component$(() => {
