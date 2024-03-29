@@ -1,4 +1,4 @@
-import { component$, useSignal, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik'
+import { component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
 import Gauge from './gauge'
 
 export default component$<{ value: number, recurse: boolean }>(({ value, recurse }) => {
@@ -37,7 +37,7 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
     }
   `)
 
-  useVisibleTask$(() => {
+  useTask$(() => {
     setTimeout(() => bool.value = recurse, 10)
   })
 
