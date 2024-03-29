@@ -2,11 +2,11 @@
   color-scheme: dark;
   --qwik-dark-blue: #006ce9;
   --qwik-light-blue: #18b6f6;
-  --qwik-dirty-black: #1d2033;
+  --qwik-dirty-black: rgba(29, 32, 51, 0.5);
   --qwik-slate-gray: #374151;
 
   --text-color: #ffffff;
-  --main-background: #1c224a;
+  --main-background: #272727;
   --header-background: var(--main-background);
   --footer-background: var(--main-background);
 }
