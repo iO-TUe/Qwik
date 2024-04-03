@@ -21,7 +21,7 @@ export default component$(() => {
         {/* {console.log('Render: App')} */}
         <Header />
         <main class="App-main">
-            <Counter initialValue={80} maxValue={13} recurse={true} />
+            <Counter initialValue={50} maxValue={1000} recurse={false} />
         </main>
     </>
 })

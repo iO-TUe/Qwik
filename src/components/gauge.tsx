@@ -1,7 +1,7 @@
 import { component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
 import Gauge from './gauge'
 
-export default component$<{ value: number, recurse: boolean }>(({ value, recurse }) => {
+export default component$((props: { value: number, max: number, recurse: boolean }) => {
   const bool = useSignal(false)
 
   useStylesScoped$(/*scss*/`
@@ -38,7 +38,7 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
   `)
 
   useTask$(() => {
-    setTimeout(() => bool.value = recurse, 0)
+    setTimeout(() => bool.value = props.recurse, 0)
   })
 
   // console.log('Script: Gauge')
@@ -53,10 +53,13 @@ export default component$<{ value: number, recurse: boolean }>(({ value, recurse
           </linearGradient>
         </defs>
         <circle r="56" cx="60" cy="60" stroke-width="8" style="fill: #000; stroke: #0000" />
-        <circle class="stroke" r="56" cx="60" cy="60" stroke-width="8" style={`stroke-dasharray: ${value * 3.51}, 351.858;`} />
+        <circle class="stroke" r="56" cx="60" cy="60" stroke-width="8" style={`stroke-dasharray: ${props.value * 3.51}, 351.858;`} />
       </svg>
-      <span class="value">{value}</span>
+      <span class="value">{props.value}</span>
     </div>
-    {(bool.value && value < 100) && <div class="recurse"><Gauge value={value + 1} recurse={true} /><Gauge value={value + 5} recurse={true} /></div>}
+    {(bool.value && props.max > 0) && <div class="recurse">
+      <Gauge value={props.value * 2} max={props.max - 1} recurse={true} />
+      <Gauge value={Math.round(props.value / 2)} max={props.max - 1} recurse={true} />
+    </div>}
   </>
 })
