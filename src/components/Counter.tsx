@@ -10,6 +10,10 @@ export default component$((props: { initialValue: number, maxValue: number, recu
       justify-content: center;
       gap: 20px;
     }
+
+    .counters:has(.recurse) {
+      display: flex;
+    }
   `)
 
   const count = useSignal(props.initialValue)
