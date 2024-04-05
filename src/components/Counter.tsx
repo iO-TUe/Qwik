@@ -4,7 +4,7 @@ import Gauge from './gauge'
 
 export default component$((props: { initialValue: number, maxValue: number, recurse: boolean }) => {
   useStylesScoped$(/*scss*/`
-    .wrapper {
+    .wrapper, .counters {
       display: flex;
       align-items: center;
       justify-content: center;
