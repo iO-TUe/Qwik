@@ -11,7 +11,7 @@ export default component$((props: { initialValue: number, maxValue: number, recu
       gap: 20px;
     }
 
-    .counters:has(.recurse) {
+    .counters:has(:global(.recurse)) {
       display: flex;
     }
   `)

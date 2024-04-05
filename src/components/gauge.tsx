@@ -2,8 +2,6 @@ import { component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/q
 import Gauge from './gauge'
 
 export default component$((props: { value: number, max: number, recurse: boolean }) => {
-  const bool = useSignal(false)
-
   useStylesScoped$(/*scss*/`
     .wrapper {
       position: relative;
@@ -37,6 +35,8 @@ export default component$((props: { value: number, max: number, recurse: boolean
     }
   `)
 
+  const bool = useSignal(false)
+
   useTask$(() => {
     setTimeout(() => bool.value = props.recurse, 0)
   })
@@ -58,8 +58,8 @@ export default component$((props: { value: number, max: number, recurse: boolean
       <span class="value">{props.value}</span>
     </div>
     {(bool.value && props.max > 0) && <div class="recurse">
-      <Gauge value={props.value * 2} max={props.max - 1} recurse={true} />
-      <Gauge value={Math.round(props.value / 2)} max={props.max - 1} recurse={true} />
+      <Gauge value={props.value + 1} max={props.max - 1} recurse={true} />
+      <Gauge value={props.value - 1} max={props.max - 1} recurse={true} />
     </div>}
   </>
 })
