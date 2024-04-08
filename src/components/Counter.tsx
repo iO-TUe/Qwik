@@ -4,15 +4,17 @@ import Gauge from './gauge'
 
 export default component$((props: { initialValue: number, maxValue: number, recurse: boolean }) => {
   useStylesScoped$(/*scss*/`
-    .wrapper, .counters {
+    .wrapper {
       display: flex;
+      flex-direction: row;
       align-items: center;
       justify-content: center;
       gap: 20px;
     }
 
     .counters:has(:global(.recurse)) {
-      display: flex;
+      display:flex;
+      align-items: center;
     }
   `)
 
