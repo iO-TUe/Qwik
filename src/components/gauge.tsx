@@ -1,7 +1,7 @@
-import { component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
+import { component$, useSignal, useStylesScoped$, useTask$, type QRL } from '@builder.io/qwik'
 import Gauge from './gauge'
 
-export default component$((props: { value: number, max: number, recurse: boolean }) => {
+export default component$((props: { value: number, max: number, recurse: boolean, fn?: QRL<() => void> }) => {
   useStylesScoped$(/*scss*/`
     .wrapper {
       position: relative;
@@ -44,7 +44,7 @@ export default component$((props: { value: number, max: number, recurse: boolean
   // console.log('Script: Gauge')
   return <>
     {/* {console.log('Render: Gauge')} */}
-    <div role='feed' class="wrapper" onClick$={() => bool.value = true}>
+    <div role='feed' class="wrapper" onClick$={() => props.fn ? props.fn() : bool.value = true}>
       <svg viewBox="0 0 120 120" class="gauge">
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">

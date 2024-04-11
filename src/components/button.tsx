@@ -1,6 +1,6 @@
-import { component$, useStylesScoped$, type PropFunction } from "@builder.io/qwik"
+import { component$, useStylesScoped$, type QRL } from "@builder.io/qwik"
 
-export default component$<{ disabled: boolean, fn: PropFunction<() => void>, sign: string }>(({ disabled, fn, sign }) => {
+export default component$<{ disabled: boolean, fn: QRL<() => void>, sign: string }>((props) => {
     useStylesScoped$(/*scss*/`
         .button {
             background: var(--qwik-dirty-black);
@@ -27,8 +27,8 @@ export default component$<{ disabled: boolean, fn: PropFunction<() => void>, sig
     // console.log(`Script: "${sign}" button`)
     return <>
         {/* {console.log(`Render: "${sign}" button`)} */}
-        <button class="button" disabled={disabled} onClick$={() => fn()} aria-label={sign}>
-            {sign}
+        <button class="button" disabled={props.disabled} onClick$={() => props.fn()} aria-label={props.sign}>
+            {props.sign}
         </button>
     </>
 })

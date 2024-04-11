@@ -34,7 +34,7 @@ export default component$((props: { initialValue: number, maxValue: number, recu
       <Button disabled={count.value === 0} fn={subtract} sign='-' />
       <div class="counters">
         {[...Array(props.recurse ? 1 : props.maxValue)].map((_, idx) =>
-          <Gauge key={idx} value={count.value} max={props.maxValue} recurse={false} />)}
+          <Gauge key={idx} value={count.value} max={props.maxValue} recurse={false} fn={$(() => console.log(idx))} />)}
       </div>
       <Button disabled={count.value === 100} fn={add} sign='+' />
     </div>
