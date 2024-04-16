@@ -36,8 +36,8 @@ export default component$(() => {
     const input = useSignal('')
     const items = useStore<{ $: { id: number, text: string }[] }>({ $: [] })
 
-    const addItem = $((ev: Event) => {
-        if ((ev as KeyboardEvent).key === 'Enter' && input.value) {
+    const addItem = $(({ key }: KeyboardEvent) => {
+        if (key === 'Enter' && input.value) {
             items.$.push({ id: id.value++, text: input.value })
             input.value = ""
         }
@@ -55,7 +55,7 @@ export default component$(() => {
             <section id="todo">
                 <label >
                     <h2>Add new item</h2>
-                    <input id="input" bind:value={input} onKeyDown$={addItem} />
+                    <input id="input" bind:value={input} onKeyUp$={addItem} />
                 </label>
                 <ul class="list">
                     {items.$.map(item => <Item key={item.id} item={item} remove$={removeItem} />)}
