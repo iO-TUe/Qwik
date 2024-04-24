@@ -52,7 +52,6 @@ export default component$(() => {
 
     useOnDocument('DOMContentLoaded', $(() => {
         input.value!.disabled = false
-        console.log(input.value)
     }))
 
     // { console.log('Script: App') }

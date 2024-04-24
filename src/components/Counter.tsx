@@ -31,7 +31,7 @@ export default component$((props: { initialValue: number, maxValue: number, recu
     if (isBrowser) {
       const delay = Date.now() + 50
       while (Date.now() < delay) {
-        console.log(Date.now())
+        console.log()
       }
     }
   })
