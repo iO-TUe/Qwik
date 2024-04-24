@@ -1,5 +1,5 @@
 import { $, component$, useOnDocument, useSignal, useStore, useStylesScoped$ } from "@builder.io/qwik"
-import Counter from "~/counter"
+import Counter from "~/counter.gen"
 import Header from "~/header"
 import Item from "~/item"
 
@@ -42,7 +42,7 @@ export default component$(() => {
     const addItem = $(({ key }: KeyboardEvent, el: HTMLInputElement) => {
         if (key === 'Enter' && el.value) {
             items.$.push({ id: id.value++, text: el.value })
-            el.value = ""
+            el.value = ''
         }
     })
 

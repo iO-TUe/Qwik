@@ -1,7 +1,7 @@
 import { $, component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
-import Button from './button'
-import Gauge from './gauge'
+import Button from '../button'
+import Gauge from '../gauge'
 
 export default component$((props: { initialValue: number, maxValue: number, recurse: boolean }) => {
   useStylesScoped$(/*scss*/`
