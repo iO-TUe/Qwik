@@ -4,23 +4,7 @@ import { fileURLToPath } from "url"
 import { defineConfig } from "vite"
 
 export default defineConfig(() => ({
-    plugins: [qwikCity(), qwikVite({
-        devTools: { clickToSource: false },
-        entryStrategy: {
-            type: "smart",
-            manual: {
-                ...bundle('load', [
-                    "s_rJEWSvSW7rY",
-                    "s_BknvJvmiXNA"
-                ]),
-                ...bundle('styles', [
-                    "s_X9SI4jHHwps",
-                    "s_WZDCvF9I7Io",
-                    "s_SqpMVBXCdqw"
-                ])
-            }
-        }
-    })],
+    plugins: [qwikCity({ trailingSlash: false }), qwikVite({ devTools: { clickToSource: false } })],
     resolve: {
         alias: { "~": fileURLToPath(new URL("./src/components", import.meta.url)) }
     },

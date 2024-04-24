@@ -3,7 +3,6 @@ import Counter from "~/counter"
 import Header from "~/header"
 import Item from "~/item"
 
-
 export default component$(() => {
     useStylesScoped$(/*scss*/`
         .App-main {
@@ -26,6 +25,10 @@ export default component$(() => {
         .list {
             padding-inline-start: 0;
         }
+        
+        #counters {
+            height: 10vh;
+        }
 
         #counters :global(.counters) {
             display: flex;
@@ -33,14 +36,13 @@ export default component$(() => {
     `)
 
     const id = useSignal(0)
-    const input = useSignal('')
     const items = useStore<{ $: { id: number, text: string }[] }>({ $: [] })
-    const i = useSignal<HTMLInputElement>()
+    const input = useSignal<HTMLInputElement>()
 
-    const addItem = $(({ key }: KeyboardEvent) => {
-        if (key === 'Enter' && input.value) {
-            items.$.push({ id: id.value++, text: input.value })
-            input.value = ""
+    const addItem = $(({ key }: KeyboardEvent, el: HTMLInputElement) => {
+        if (key === 'Enter' && el.value) {
+            items.$.push({ id: id.value++, text: el.value })
+            el.value = ""
         }
     })
 
@@ -49,7 +51,8 @@ export default component$(() => {
     })
 
     useOnDocument('DOMContentLoaded', $(() => {
-        i.value!.disabled = false
+        input.value!.disabled = false
+        console.log(input.value)
     }))
 
     // { console.log('Script: App') }
@@ -60,14 +63,14 @@ export default component$(() => {
             <section id="todo">
                 <label >
                     <h2>Add new item</h2>
-                    <input ref={i} disabled id="input" bind:value={input} onKeyUp$={addItem} />
+                    <input ref={input} id="input" onKeyUp$={addItem} disabled />
                 </label>
                 <ul class="list">
                     {items.$.map(item => <Item key={item.id} item={item} remove$={removeItem} />)}
                 </ul>
             </section>
             <section id="counters">
-                <Counter initialValue={50} maxValue={500} recurse={false} />
+                <Counter initialValue={50} maxValue={5} recurse={false} />
             </section>
         </main>
     </>
