@@ -1,4 +1,4 @@
-import { $, component$, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
+import { $, component$, useOnDocument, useSignal, useStylesScoped$, useTask$ } from '@builder.io/qwik'
 import { isBrowser } from '@builder.io/qwik/build'
 import Button from './button'
 import Gauge from './gauge'

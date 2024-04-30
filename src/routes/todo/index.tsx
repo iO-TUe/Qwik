@@ -37,7 +37,6 @@ export default component$(() => {
 
     const id = useSignal(0)
     const items = useStore<{ $: { id: number, text: string }[] }>({ $: [] })
-    const input = useSignal<HTMLInputElement>()
 
     const addItem = $(({ key }: KeyboardEvent, el: HTMLInputElement) => {
         if (key === 'Enter' && el.value) {
@@ -50,10 +49,6 @@ export default component$(() => {
         items.$ = items.$.filter(({ id }) => id !== rid)
     })
 
-    useOnDocument('DOMContentLoaded', $(() => {
-        input.value!.disabled = false
-    }))
-
     // { console.log('Script: App') }
     return <>
         {/* {console.log('Render: App')} */}
@@ -62,7 +57,7 @@ export default component$(() => {
             <section id="todo">
                 <label >
                     <h2>Add new item</h2>
-                    <input ref={input} id="input" onKeyUp$={addItem} disabled />
+                    <input id="input" onKeyUp$={addItem} disabled />
                 </label>
                 <ul class="list">
                     {items.$.map(item => <Item key={item.id} item={item} remove$={removeItem} />)}
