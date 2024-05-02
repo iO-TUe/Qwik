@@ -57,7 +57,7 @@ export default component$(() => {
             <section id="todo">
                 <label >
                     <h2>Add new item</h2>
-                    <input id="input" onKeyUp$={addItem} disabled />
+                    <input id="input" onKeyUp$={addItem} />
                 </label>
                 <ul class="list">
                     {items.$.map(item => <Item key={item.id} item={item} remove$={removeItem} />)}
