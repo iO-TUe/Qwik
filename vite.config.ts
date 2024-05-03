@@ -10,8 +10,3 @@ export default defineConfig(() => ({
     },
 }))
 
-function bundle(bundleName: string, symbols: string[]) {
-    return symbols.reduce((obj, key) => {
-        obj[key.replace("s_", "")] = bundleName; return obj
-    }, {} as Record<string, string>)
-}
